@@ -1,0 +1,64 @@
+package javaSingle.klv.common.enums;
+
+import static javaSingle.klv.common.enums.LoudnessMode.*;
+import static javaSingle.klv.common.enums.LoudnessScale.*;
+
+import java.util.stream.Stream;
+
+public enum LoudnessModeScaleEnum {
+  UNKNOWN(null, null),
+  LOUDNESS_EBU_9_REL(LOUDNESS_MODE_EBU, LOUDNESS_SCALE_REL_P9),
+  LOUDNESS_EBU_18_REL(LOUDNESS_MODE_EBU, LOUDNESS_SCALE_REL_P18),
+  LOUDNESS_EBU_9_ABS(LOUDNESS_MODE_EBU, LOUDNESS_SCALE_ABS_P9),
+  LOUDNESS_EBU_18_ABS(LOUDNESS_MODE_EBU, LOUDNESS_SCALE_ABS_P18),
+  LOUDNESS_ATSC_9_REL_2011(LOUDNESS_MODE_ATSC_A85_2011, LOUDNESS_SCALE_REL_P9),
+  LOUDNESS_ATSC_18_REL_2011(LOUDNESS_MODE_ATSC_A85_2011, LOUDNESS_SCALE_REL_P18),
+  LOUDNESS_ATSC_9_ABS_2011(LOUDNESS_MODE_ATSC_A85_2011, LOUDNESS_SCALE_ABS_P9),
+  LOUDNESS_ATSC_18_ABS_2011(LOUDNESS_MODE_ATSC_A85_2011, LOUDNESS_SCALE_ABS_P18),
+  LOUDNESS_ATSC_9_REL_2013(LOUDNESS_MODE_ATSC_A85_2013, LOUDNESS_SCALE_REL_P9),
+  LOUDNESS_ATSC_18_REL_2013(LOUDNESS_MODE_ATSC_A85_2013, LOUDNESS_SCALE_REL_P18),
+  LOUDNESS_ATSC_9_ABS_2013(LOUDNESS_MODE_ATSC_A85_2013, LOUDNESS_SCALE_ABS_P9),
+  LOUDNESS_ATSC_18_ABS_2013(LOUDNESS_MODE_ATSC_A85_2013, LOUDNESS_SCALE_ABS_P18),
+  LOUDNESS_ARIB_9_REL(LOUDNESS_MODE_ARIB_TR_B32, LOUDNESS_SCALE_REL_P9),
+  LOUDNESS_ARIB_18_REL(LOUDNESS_MODE_ARIB_TR_B32, LOUDNESS_SCALE_REL_P18),
+  LOUDNESS_ARIB_9_ABS(LOUDNESS_MODE_ARIB_TR_B32, LOUDNESS_SCALE_ABS_P9),
+  LOUDNESS_ARIB_18_ABS(LOUDNESS_MODE_ARIB_TR_B32, LOUDNESS_SCALE_ABS_P18),
+  LOUDNESS_DPP_LIVE_9_REL(LOUDNESS_MODE_DPP_LIVE, LOUDNESS_SCALE_REL_P9),
+  LOUDNESS_DPP_LIVE_18_REL(LOUDNESS_MODE_DPP_LIVE, LOUDNESS_SCALE_REL_P18),
+  LOUDNESS_DPP_LIVE_9_ABS(LOUDNESS_MODE_DPP_LIVE, LOUDNESS_SCALE_ABS_P9),
+  LOUDNESS_DPP_LIVE_18_ABS(LOUDNESS_MODE_DPP_LIVE, LOUDNESS_SCALE_ABS_P18),
+  LOUDNESS_DPP_NON_LIVE_9_REL(LOUDNESS_MODE_DPP_NON_LIVE, LOUDNESS_SCALE_REL_P9),
+  LOUDNESS_DPP_NON_LIVE_18_REL(LOUDNESS_MODE_DPP_NON_LIVE, LOUDNESS_SCALE_REL_P18),
+  LOUDNESS_DPP_NON_LIVE_9_ABS(LOUDNESS_MODE_DPP_NON_LIVE, LOUDNESS_SCALE_ABS_P9),
+  LOUDNESS_DPP_NON_LIVE_18_ABS(LOUDNESS_MODE_DPP_NON_LIVE, LOUDNESS_SCALE_ABS_P18);
+
+  private LoudnessMode loudnessMode;
+  private LoudnessScale loudnessScale;
+
+  LoudnessModeScaleEnum(final LoudnessMode loudnessMode, final LoudnessScale loudnessScale) {
+    this.loudnessMode = loudnessMode;
+    this.loudnessScale = loudnessScale;
+  }
+
+  public LoudnessMode getLoudnessMode() {
+    return loudnessMode;
+  }
+
+  public LoudnessScale getLoudnessScale() {
+    return loudnessScale;
+  }
+
+  public static LoudnessModeScaleEnum getLoudnessScaleForMode(
+    final LoudnessMode loudnessMode,
+    final LoudnessScale loudnessScale
+  ) {
+    return Stream
+      .of(LoudnessModeScaleEnum.values())
+      .filter(val ->
+        !val.equals(UNKNOWN) &&
+        (val.getLoudnessMode().equals(loudnessMode) && val.getLoudnessScale().equals(loudnessScale))
+      )
+      .findFirst()
+      .orElse(UNKNOWN);
+  }
+}

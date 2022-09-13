@@ -1,0 +1,23 @@
+#![allow(non_camel_case_types)]
+
+#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+pub enum MeterSourceOption {
+  AUDIO,
+  FULL_HEIGHT,
+  FULL_IMMERSIVE,
+  DYNAMICS,
+  IMMERSIVE_DYNAMICS,
+  DOWNMIX,
+  LOUDNESS,
+  PRE_TONE_TB,
+  PRE_DELAY,
+  PHASE,
+  SU_DOWNMIX,
+  DUAL_TRACK,
+  QUAD_TRACK,
+  TRACK_PAIR_LOUDNESS,
+  TRACK_ODD_LOUDNESS,
+  TRACK_EVEN_LOUDNESS,
+  DOWNMIX_LOUDNESS,
+  SU_DOWNMIX_LOUDNESS,
+}

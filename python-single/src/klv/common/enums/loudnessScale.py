@@ -1,0 +1,9 @@
+from enum import IntEnum
+
+
+class LoudnessScale(IntEnum):
+  LOUDNESS_SCALE_REL_P9 = 0
+  LOUDNESS_SCALE_REL_P18 = 1
+  LOUDNESS_SCALE_ABS_P9 = 2
+  LOUDNESS_SCALE_ABS_P18 = 3
+  LOUDNESS_SCALE_COUNT = 4

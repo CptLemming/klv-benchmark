@@ -1,0 +1,12 @@
+#![allow(non_camel_case_types)]
+
+#[derive(Debug)]
+pub enum LoudnessMode {
+  LOUDNESS_MODE_EBU,
+  LOUDNESS_MODE_ATSC_A85_2011,
+  LOUDNESS_MODE_ARIB_TR_B32,
+  LOUDNESS_MODE_ATSC_A85_2013,
+  LOUDNESS_MODE_DPP_LIVE,
+  LOUDNESS_MODE_DPP_NON_LIVE,
+  LOUDNESS_MODE_COUNT,
+}
