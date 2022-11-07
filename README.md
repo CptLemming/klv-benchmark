@@ -25,6 +25,7 @@ KLV decode benchmark tool
 ## Python
 
 | Run No. | Elapsed time | No. runs | Avg time |
+| -- | -- | -- | -- |
 | #1 | 927472ms | 100000 | 148.3601ms |
 | #2 | 196953ms | 100000 | 151.07109ms |
 | #3 | 364306ms | 100000 | 152.69573ms |
